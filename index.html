@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,170 +7,218 @@
     <title>Document</title>
   </head>
   <body>
-    <header>
-      <nav>
+    <header class="site-header">
+      <nav class="site-nav">
         <img
           src="./assets/imgs/colaboraciones-salvajes.png"
           alt="logo de la pagina"
-          style="width: 10%"
+          class="nav-logo-img"
         />
-        <a href="./index.html">Inicio</a>
+        <a href="./index.html" class="active">Inicio</a>
         <a href="./templates/catalogo.html">Ejemplares</a>
         <a href="./templates/apadrinamiento.html">Apadrinar y Donar</a>
+        <div class="nav-actions">
+          <button class="btn-theme" id="btn-theme" aria-label="Cambiar tema">
+            <span class="icon-sun">☀️</span>
+            <span class="icon-moon">🌙</span>
+          </button>
+          <a href="./templates/catalogo.html" class="btn-primary">Apadrinar</a>
+        </div>
       </nav>
     </header>
+
     <main>
-      <section id="hero">
-        <div>
-          <h1>Protege la vida silvestre: Apadrina hoy</h1>
-          Descubre el fascinante mundo de nuestra fauna rescatada. Con tu
-          apadrinamiento, no solo aprendes sobre el hábitat natural, la dieta y
-          las características físicas de especies únicas como el tejón melero,
-          el panda rojo y el león marino, sino que financias directamente su
-          cuidado diario. Conviértete en su mayor aliado.
-          <a href="./templates/catalogo.html">Ver animales para apadrinar</a>
-          <div>
-            <p>100%</p>
-            <p>alimentacion natural</p>
-          </div>
-          <div>
-            <p>24/7</p>
-            <p>Monitoreo médico</p>
+      <section id="hero" class="section-hero">
+        <div class="hero-content">
+          <h1 class="hero-title">Protege la vida silvestre: Apadrina hoy</h1>
+          <p class="hero-description">
+            Descubre el fascinante mundo de nuestra fauna rescatada. Con tu
+            apadrinamiento, no solo aprendes sobre el hábitat natural, la dieta
+            y las características físicas de especies únicas como el tejón
+            melero, el panda rojo y el león marino, sino que financias
+            directamente su cuidado diario. Conviértete en su mayor aliado.
+          </p>
+          <a href="./templates/catalogo.html" class="btn-primary"
+            >Ver animales para apadrinar</a
+          >
+          <div class="hero-stats">
+            <div class="stat">
+              <p class="stat-value">100%</p>
+              <p class="stat-label">Alimentacion natural</p>
+            </div>
+            <div class="stat">
+              <p class="stat-value">24/7</p>
+              <p class="stat-label">Monitoreo médico</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="info-especies" style="display: grid" ;>
-        <div>
-          <div>
-            <span>Biodiversidad en Custodia</span>
-            <h3>Especies Representativas</h3>
-            <p>
-              Fichas biológicas de las tres especies clave que estructuran
-              nuestros programas de conservación
+      <section id="info-especies" class="section-especies">
+        <div class="section-header">
+          <span class="section-eyebrow">Biodiversidad en Custodia</span>
+          <h2 class="section-title">Especies Representativas</h2>
+          <p class="section-subtitle">
+            Fichas biológicas de las tres especies clave que estructuran
+            nuestros programas de conservación
+          </p>
+        </div>
+
+        <div class="especies-grid">
+          <!-- Tejón Melero -->
+          <div class="especie-card">
+            <div class="card-header">
+              <div class="card-image">
+                <img src="./assets/imgs/tejon-melero.jpg" alt="tejon melero" />
+              </div>
+              <div class="card-meta">
+                <span class="card-scientific">Mellivora capensis</span>
+              </div>
+            </div>
+            <h3 class="card-name">Tejón Melero</h3>
+            <p class="card-description">
+              Mustélido renombrado por su notable resistencia inmunológica,
+              cuero elástico de alta densidad e instinto exploratorio.
             </p>
-            <div>
-              <img src="./assets/imgs/tejon-melero.jpg" alt="tejon melero" />
+            <div class="card-data-row">
+              <span class="card-data-label">Morfologia</span>
+              <span class="card-data-value"
+                >9–14 kg, manto dorsal gris plata y garras de 4 cm.</span
+              >
+            </div>
+            <div class="card-data-row">
+              <span class="card-data-label">Hábitat</span>
+              <span class="card-data-value"
+                >Sabana seca, matorrales semiáridos y áreas de roca.</span
+              >
+            </div>
+            <div class="card-data-row">
+              <span class="card-data-label">Dieta</span>
+              <span class="card-data-value"
+                >Omnívoro oportunista: miel, raíces, larvas y reptiles.</span
+              >
             </div>
             <div>
-              <span>Mellivora capensis</span>
+              <a href="./templates/catalogo.html" class="card-link"
+                >ver ejemplares de tejon</a
+              >
             </div>
           </div>
-          <h3>tejon melero</h3>
-          <p>
-            Mustélido renombrado por su notable resistencia inmunológica, cuero
-            elástico de alta densidad e instinto exploratorio.
-          </p>
-          <div>
-            <span> Morfologia </span>
-            <span>9–14 kg, manto dorsal gris plata y garras de 4 cm.</span>
-          </div>
-          <div>
-            <span>Hábitat</span>
-            <span>Sabana seca, matorrales semiáridos y áreas de roca.</span>
-          </div>
-          <div>
-            <span>Dieta</span>
-            <span>Omnívoro oportunista: miel, raíces, larvas y reptiles.</span>
-          </div>
-          <div>
-            <a> ver ejemplares de tejon</a>
-          </div>
-        </div>
 
-        <div>
-          <div>
-            <div>
-              <img src="./assets/imgs/panda-rojo.jpg" alt="tejon melero" />
+          <!-- Panda Rojo -->
+          <div class="especie-card">
+            <div class="card-header">
+              <div class="card-image">
+                <img src="./assets/imgs/panda-rojo.jpg" alt="panda rojo" />
+              </div>
+              <div class="card-meta">
+                <span class="card-scientific">Ailurus fulgens</span>
+              </div>
+            </div>
+            <h3 class="card-name">Panda Rojo</h3>
+            <p class="card-description">
+              Mamífero arborícola exclusivo de los bosques nubosos del Himalaya,
+              vital para la dispersión de semillas de altura.
+            </p>
+            <div class="card-data-row">
+              <span class="card-data-label">Morfologia</span>
+              <span class="card-data-value"
+                >4–6 kg, pelaje castaño rojizo y falso pulgar prensil.</span
+              >
+            </div>
+            <div class="card-data-row">
+              <span class="card-data-label">Hábitat</span>
+              <span class="card-data-value"
+                >Bosques templados con sotobosque de bambú (2.200 m).</span
+              >
+            </div>
+            <div class="card-data-row">
+              <span class="card-data-label">Dieta</span>
+              <span class="card-data-value"
+                >95% brotes y follaje de bambú, bayas y líquenes frescos.</span
+              >
             </div>
             <div>
-              <span>Ailurus fulgens</span>
+              <a href="./templates/catalogo.html" class="card-link"
+                >ver ejemplares del panda rojo</a
+              >
             </div>
           </div>
-          <h3>panda rojo</h3>
-          <p>
-            Mamífero arborícola exclusivo de los bosques nubosos del Himalaya,
-            vital para la dispersión de semillas de altura.
-          </p>
-          <div>
-            <span> Morfologia </span>
-            <span>4–6 kg, pelaje castaño rojizo y falso pulgar prensil.</span>
-          </div>
-          <div>
-            <span>Hábitat</span>
-            <span>Bosques templados con sotobosque de bambú (2.200 m).</span>
-          </div>
-          <div>
-            <span>Dieta</span>
-            <span
-              >95% brotes y follaje de bambú, bayas y líquenes frescos.</span
-            >
-          </div>
-          <div>
-            <a>ver ejemplares del panda rojo</a>
-          </div>
-        </div>
-        <div>
-          <div>
+
+          <!-- León Marino -->
+          <div class="especie-card">
+            <div class="card-header">
+              <div class="card-image">
+                <img src="./assets/imgs/sea-lion.png" alt="León Marino" />
+              </div>
+              <div class="card-meta">
+                <span class="card-scientific">Zalophus californianus</span>
+              </div>
+            </div>
+            <h3 class="card-name">León Marino</h3>
+            <p class="card-description">
+              Depredador costero fundamental para regular las comunidades de
+              peces marinos y evaluar la salud del litoral.
+            </p>
+            <div class="card-data-row">
+              <span class="card-data-label">Morfologia</span>
+              <span class="card-data-value"
+                >100–300 kg, aletas propulsoras y denso pelaje
+                impermeable.</span
+              >
+            </div>
+            <div class="card-data-row">
+              <span class="card-data-label">Hábitat</span>
+              <span class="card-data-value"
+                >Playas protegidas, bahías rocosas e islas del Pacífico.</span
+              >
+            </div>
+            <div class="card-data-row">
+              <span class="card-data-label">Dieta</span>
+              <span class="card-data-value"
+                >Arenque, calamar y jurel de captura sustentable.</span
+              >
+            </div>
             <div>
-              <img src="./assets/imgs/sea-lion.png" alt="tejon melero" />
+              <a href="./templates/catalogo.html" class="card-link"
+                >ver ejemplares del león marino</a
+              >
             </div>
-            <div>
-              <span>Ailurus fulgens</span>
-            </div>
-          </div>
-          <h3>panda rojo</h3>
-          <p>
-            Mamífero arborícola exclusivo de los bosques nubosos del Himalaya,
-            vital para la dispersión de semillas de altura.
-          </p>
-          <div>
-            <span> Morfologia </span>
-            <span>4–6 kg, pelaje castaño rojizo y falso pulgar prensil.</span>
-          </div>
-          <div>
-            <span>Hábitat</span>
-            <span>Bosques templados con sotobosque de bambú (2.200 m).</span>
-          </div>
-          <div>
-            <span>Dieta</span>
-            <span
-              >95% brotes y follaje de bambú, bayas y líquenes frescos.</span
-            >
-          </div>
-          <div>
-            <a>ver ejemplares del panda rojo</a>
           </div>
         </div>
       </section>
-      <section>
-        <div>
+
+      <section class="section-cta">
+        <div class="cta-box">
           <div>
-            <h3>¿Listo para formar parte de la reserva?</h3>
-            <p>
+            <h3 class="cta-title">¿Listo para formar parte de la reserva?</h3>
+            <p class="cta-description">
               Inicia tu apadrinamiento hoy. Cada donación respalda nutrición
               clínica y hábitats protegidos.
             </p>
           </div>
           <div>
-            <a href="./templates/catalogo.html">Comezar Apadrinamiento</a>
+            <a href="./templates/catalogo.html" class="btn-primary"
+              >Comezar Apadrinamiento</a
+            >
           </div>
         </div>
       </section>
     </main>
 
-    <footer>
-      <div>
-        <div>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
           <span>Colaboraciones Salvajes</span>
           <span>Reserva Biologica Certificada</span>
         </div>
-        <div>
+        <div class="footer-links">
           <span>Privacidad</span>
           <span>Transparecia y contacto</span>
         </div>
       </div>
     </footer>
+
     <script src="./js/main.js"></script>
   </body>
 </html>
