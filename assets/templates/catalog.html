@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../styles/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="site-nav">
+        <img
+          src="./../imgs/colaboraciones-salvajes.png"
+          alt="logo de la pagina"
+          class="nav-logo-img"
+        />
+        <a href="./../../index.html">Inicio</a>
+        <a
+         href="./catalog.html"
+          class="active"
+          >Ejemplares</a
+        >
+        <a href="./apadrinamiento.html">Apadrinar y Donar</a>
+        <div class="nav-actions">
+          <button class="btn-theme" id="btn-theme" aria-label="Cambiar tema">
+            <span class="icon-sun">☀️</span>
+            <span class="icon-moon">🌙</span>
+          </button>
+          <a href="./catalog.html" class="btn-primary">Apadrinar</a>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section class="section-hero catalogo-hero">
+        <div class="catalogo-intro">
+          <span class="section-eyebrow">Custodia individualizada</span>
+          <h1 class="hero-title">Ejemplares residentes</h1>
+          <p class="hero-description">
+            Cada individuo cuenta con una pauta biomédica y seguimiento
+            nutricional personalizado. Al apadrinar con nombre propio, solventas
+            de forma directa su estancia, enriquecimiento ambiental y medicina
+            preventiva.
+          </p>
+        </div>
+        <div class="catalogo-filtros">
+          <div class="filter-group">
+            <button class="filter-btn filter-btn--active" data-filter="all">
+              Todos
+            </button>
+            <button class="filter-btn" data-filter="tejon">
+              Tejon de la miel
+            </button>
+            <button class="filter-btn" data-filter="seal-lion">
+              Leon marino
+            </button>
+            <button class="filter-btn" data-filter="red-panda">
+              Panda rojo
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="catalogo section-especies">
+        <div class="catalogo-grid" id="grid-animals"></div>
+      </section>
+      <section class="section-cta catalogo-cta">
+        <div class="cta-box">
+          <div>
+            <h3 class="cta-title">
+              ¿Por qué apadrinar de forma individualizada?
+            </h3>
+            <p class="cta-description">
+              Al apadrinar a un animal específico, aseguras la continuidad
+              estricta de sus tratamientos clínicos y sus complementos
+              biológicos. Cada trimestre remitimos un balance con su peso,
+              progreso conductual y fotografías actualizadas.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>Colaboraciones Salvajes</span>
+        <p>
+          Iniciativa de custodia responsable para la preservación de especies
+          amenazadas y atención veterinaria continuada.
+        </p>
+      </div>
+    </footer>
+    <script type="module" src="./../../js/main.js"></script>
+  </body>
+</html>

@@ -27,7 +27,6 @@ import { arrayAnimals } from "./data.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".filter-btn");
-  const cards = document.querySelectorAll(".animal-card");
   if (!buttons.length) return;
 
   buttons.forEach((btn) => {
@@ -37,10 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
       buttons.forEach((b) => b.classList.remove("filter-btn--active"));
       btn.classList.add("filter-btn--active");
 
+      const cards = document.querySelectorAll(".animal-card");
       cards.forEach((card) => {
         const show =
           filter === "all" || card.getAttribute("data-category") === filter;
-        card.style.display = show ? "flex" : "none";
+        card.hidden = !show;
       });
     });
   });
@@ -49,6 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
 const showAnimals = document.getElementById("grid-animals");
 
 function viewAnimals(list) {
+  if (!showAnimals) return;
+
   showAnimals.innerHTML = "";
   list.forEach((animal) => {
     const card = document.createElement("article");
@@ -57,27 +59,36 @@ function viewAnimals(list) {
     card.className = "animal-card";
     
     if (animal.type_animal === "tejon melero") {
-      imgUrl = "./../assets/imgs/tejon-melero.jpg";
+      imgUrl = "./../imgs/tejon-melero.jpg";
     } else if (animal.type_animal === "panda rojo") {
-      imgUrl = "./../assets/imgs/panda-rojo.jpg";
+      imgUrl = "./../imgs/panda-rojo.jpg";
     } else {
-      imgUrl = "./../assets/imgs/sea-lion.png";
+      imgUrl = "./../imgs/sea-lion.png";
     }
+    const category =
+      animal.type_animal === "tejon melero"
+        ? "tejon"
+        : animal.type_animal === "panda rojo"
+          ? "red-panda"
+          : "seal-lion";
     card.innerHTML = `
-    <div>
-      <div>
+    <div class="animal-card__content">
+      <div class="animal-card__image">
         <img src="${imgUrl}" alt=${animal.type_animal}/>
-        <span>${animal.type_animal}</span>
+        <span class="animal-card__tag">${animal.type_animal}</span>
       </div>
-      <div>
-        <h2>${animal.name}</h2>
-        <span>${animal.gender} - ${animal.age} años<span>
+      <div class="animal-card__body">
+        <div class="animal-card__heading">
+          <h2 class="animal-card__name">${animal.name}</h2>
+          <span class="animal-card__meta">${animal.gender} - ${animal.age} años</span>
+        </div>
+        <p class="animal-card__description">${animal.description}</p>
       </div>
-      <p>${animal.description}</p>
-      <div>
-        <a href="./../index.html">Apadrinar a ${animal.name}</a>
-      </div>
+    </div>
+    <div class="animal-card__action">
+      <a class="btn-primary" href="./../../index.html">Apadrinar a ${animal.name}</a>
     </div>`;
+    card.setAttribute("data-category", category);
     showAnimals.appendChild(card);
   });
 }
