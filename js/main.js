@@ -59,11 +59,11 @@ function viewAnimals(list) {
     card.className = "animal-card";
     
     if (animal.type_animal === "tejon melero") {
-      imgUrl = "./../imgs/tejon-melero.jpg";
+      imgUrl = "./../assets/imgs/tejon-melero.jpg";
     } else if (animal.type_animal === "panda rojo") {
-      imgUrl = "./../imgs/panda-rojo.jpg";
+      imgUrl = "./../assets/imgs/panda-rojo.jpg";
     } else {
-      imgUrl = "./../imgs/sea-lion.png";
+      imgUrl = "./../assets/imgs/sea-lion.png";
     }
     const category =
       animal.type_animal === "tejon melero"
