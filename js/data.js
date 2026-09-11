@@ -87,3 +87,7 @@ export const arrayAnimals = [
     "Tranquila y trepadora ágil; adora los brotes más suaves del día.",
   ),
 ];
+
+export async function getAvailableAnimals() {
+  return arrayAnimals;
+}

@@ -1,4 +1,4 @@
-import { arrayAnimals } from "./data.js";
+import { arrayAnimals, getAvailableAnimals } from "./data.js";
 
 (function () {
   const STORAGE_KEY = "cs-theme";
@@ -25,7 +25,20 @@ import { arrayAnimals } from "./data.js";
   });
 })();
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+  const animalSelect = document.getElementById("animal");
+  if (animalSelect) {
+    const animals = await getAvailableAnimals();
+    animals.forEach((animal, index) => {
+      const option = document.createElement("option");
+      const animalId = animal.id ?? animal.name.toLowerCase().replaceAll(" ", "-");
+
+      option.value = animalId || `animal-${index}`;
+      option.textContent = `${animal.name} · ${animal.type_animal}`;
+      animalSelect.appendChild(option);
+    });
+  }
+
   const buttons = document.querySelectorAll(".filter-btn");
   if (!buttons.length) return;
 
@@ -86,7 +99,7 @@ function viewAnimals(list) {
       </div>
     </div>
     <div class="animal-card__action">
-      <a class="btn-primary" href="./../../index.html">Apadrinar a ${animal.name}</a>
+      <a class="btn-primary" href="./../templates/formSponsorship.html">Apadrinar a ${animal.name}</a>
     </div>`;
     card.setAttribute("data-category", category);
     showAnimals.appendChild(card);
