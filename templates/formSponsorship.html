@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./../assets/styles/styles.css" />
+    <link rel="stylesheet" href="./../assets/styles/formSponsorship.css" />
+    <title>Apadrinar y donar | Colaboraciones Salvajes</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="site-nav" aria-label="Navegación principal">
+        <a href="./../index.html"
+          ><img
+            src="./../assets/imgs/colaboraciones-salvajes.png"
+            alt="logo de la pagina"
+            class="nav-logo-img"
+        /></a>
+        <a href="./../../index.html">Inicio</a>
+        <a href="./catalog.html">Ejemplares</a>
+        <a href="./formSponsorship.html" class="active">Apadrinar y donar</a>
+        <div class="nav-actions">
+          <button class="btn-theme" id="btn-theme" aria-label="Cambiar tema">
+            <span class="icon-sun">☀️</span>
+            <span class="icon-moon">🌙</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="section-hero sponsorship-hero">
+        <div class="sponsorship-intro">
+          <span class="section-eyebrow">Tu apoyo transforma vidas</span>
+          <h1 class="hero-title">Apadrina o haz una donación</h1>
+          <p class="hero-description">
+            Elige un animal para acompañar su cuidado o contribuye al fondo
+            general de la reserva. Completa tus datos y dinos cómo quieres
+            participar.
+          </p>
+        </div>
+      </section>
+
+      <section class="sponsorship-section">
+        <div class="sponsorship-layout">
+          <div class="section-header sponsorship-header">
+            <span class="section-eyebrow">Formulario de apoyo</span>
+            <h2 class="section-title">Cuéntanos cómo quieres ayudar</h2>
+            <p class="section-subtitle">
+              Usaremos tus datos únicamente para confirmar tu aporte y
+              mantenerte informado sobre su destino.
+            </p>
+          </div>
+
+          <form class="sponsorship-form" action="#" method="post">
+            <fieldset class="form-fieldset">
+              <legend class="form-legend">Destino de tu donación</legend>
+              <div class="form-choice-grid">
+                <label class="form-choice">
+                  <input
+                    type="radio"
+                    name="donation-type"
+                    value="animal"
+                    checked
+                  />
+                  <span>
+                    <strong>Apoyar a un animal</strong>
+                    <small>Elige un ejemplar y acompaña su recuperación.</small>
+                  </span>
+                </label>
+                <label class="form-choice">
+                  <input type="radio" name="donation-type" value="general" />
+                  <span>
+                    <strong>Donación general</strong>
+                    <small>Ayuda donde la reserva más lo necesite.</small>
+                  </span>
+                </label>
+              </div>
+
+              <div class="form-group" id="animal-field">
+                <label>Animal que quieres apadrinar</label>
+                <input type="hidden" id="animal" name="animal" required />
+                <button
+                  type="button"
+                  class="animal-picker-trigger"
+                  id="animal-picker-trigger"
+                  aria-haspopup="dialog"
+                  aria-expanded="false"
+                  aria-controls="animal-picker-modal"
+                >
+                  <span class="animal-picker-trigger__preview" id="picker-preview">
+                    <span class="animal-picker-trigger__placeholder">Selecciona un ejemplar</span>
+                  </span>
+                  <svg class="animal-picker-trigger__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                </button>
+              </div>
+              <div
+                class="animal-picker-modal"
+                id="animal-picker-modal"
+                role="dialog"
+                aria-modal="true"
+                aria-label="Selecciona un animal para apadrinar"
+                hidden
+              >
+                <div class="animal-picker-modal__backdrop" id="picker-backdrop"></div>
+                <div class="animal-picker-modal__panel">
+                  <div class="animal-picker-modal__header">
+                    <div>
+                      <h3 class="animal-picker-modal__title">Elige tu animal</h3>
+                      <p class="animal-picker-modal__subtitle">Selecciona el ejemplar que quieres acompañar</p>
+                    </div>
+                    <button
+                      type="button"
+                      class="animal-picker-modal__close"
+                      id="picker-close"
+                      aria-label="Cerrar selector de animales"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                    </button>
+                  </div>
+                  <div class="animal-picker-modal__grid" id="animal-picker-grid">
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form-fields-grid">
+              <div class="form-group">
+                <label for="name">Nombre completo</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  autocomplete="name"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+              <div class="form-group form-group--full">
+                <label for="address">Dirección</label>
+                <input
+                  id="address"
+                  name="address"
+                  type="text"
+                  autocomplete="street-address"
+                  placeholder="Calle, número, ciudad"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="amount">Valor de tu aporte</label>
+                <div class="amount-input">
+                  <span aria-hidden="true">$</span>
+                  <input
+                    id="amount"
+                    name="amount"
+                    type="number"
+                    min="1"
+                    step="1"
+                    placeholder="0"
+                    required
+                  />
+                  <span aria-hidden="true">COP</span>
+                </div>
+              </div>
+            </div>
+
+            <fieldset class="form-fieldset">
+              <legend class="form-legend">Frecuencia de tu aporte</legend>
+              <div class="form-choice-grid form-choice-grid--compact">
+                <label class="form-choice">
+                  <input
+                    type="radio"
+                    name="frequency"
+                    value="recurring"
+                    checked
+                  />
+                  <span>
+                    <strong>Apadrinamiento continuo</strong>
+                    <small
+                      >Quiero seguir apoyando este aporte periódicamente.</small
+                    >
+                  </span>
+                </label>
+                <label class="form-choice">
+                  <input type="radio" name="frequency" value="single" />
+                  <span>
+                    <strong>Donación única</strong>
+                    <small>Solo quiero depositar este monto por ahora.</small>
+                  </span>
+                </label>
+              </div>
+            </fieldset>
+
+            <label class="form-consent">
+              <input type="checkbox" name="consent" required />
+              <span
+                >Acepto que el equipo de la reserva se comunique conmigo para
+                confirmar la donación.</span
+              >
+            </label>
+
+            <button class="btn-primary form-submit" type="submit">
+              Continuar con mi donación
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>Colaboraciones Salvajes</span>
+        <p>Gracias por convertir tu solidaridad en cuidado.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="./../js/main.js"></script>
+    <script type="module" src="./../js/sponsorship.js"></script>
+  </body>
+</html>
