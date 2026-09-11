@@ -1,0 +1,159 @@
+.section-especies {
+  padding-block: var(--space-3xl);
+  border-top: 1px solid var(--clr-border);
+  background: var(--clr-surface-white);
+  transition: background 0.3s ease;
+}
+
+.especies-grid {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--space-lg);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-xl);
+}
+
+@media (min-width: 768px) {
+  .especies-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.especie-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  padding: var(--space-lg);
+  border-radius: var(--radius-2xl);
+  border: 1px solid var(--clr-border);
+  background: color-mix(in srgb, var(--clr-bg) 60%, var(--clr-surface-card));
+  transition:
+    border-color var(--transition),
+    background 0.3s ease;
+}
+
+.especie-card:hover {
+  border-color: var(--clr-text-muted);
+}
+
+.card-image {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--clr-bg-elevated);
+  margin-bottom: var(--space-xs);
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 500ms ease;
+}
+
+.especie-card:hover .card-image img {
+  transform: scale(1.04);
+}
+
+.card-meta {
+  margin-bottom: 0.15rem;
+}
+
+.card-scientific {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.75rem;
+  color: var(--clr-text-muted);
+}
+
+.card-name {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--clr-text);
+}
+
+.card-description {
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: var(--clr-text-secondary);
+  font-weight: 300;
+}
+
+.card-data-row {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--clr-border);
+  padding-top: var(--space-sm);
+}
+
+.card-data-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--clr-text);
+}
+
+.card-data-value {
+  font-size: 0.78rem;
+  font-weight: 300;
+  color: var(--clr-text-muted);
+  margin-top: 0.1rem;
+}
+
+.card-link {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--clr-primary);
+  border-top: 1px solid var(--clr-border);
+  padding-top: var(--space-sm);
+  display: inline-block;
+  transition: opacity var(--transition);
+}
+
+.card-link:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+.section-cta {
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding: var(--space-2xl) var(--space-lg);
+}
+
+.cta-box {
+  padding: var(--space-2xl);
+  border-radius: var(--radius-2xl);
+  background: color-mix(in srgb, var(--clr-bg-elevated) 70%, transparent);
+  border: 1px solid var(--clr-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .cta-box {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+}
+
+.cta-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  color: var(--clr-text);
+  margin-bottom: 0.35rem;
+}
+
+.cta-description {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--clr-text-secondary);
+}
