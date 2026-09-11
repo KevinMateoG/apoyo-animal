@@ -3,10 +3,6 @@ import { arrayAnimals, getAvailableAnimals } from "./data.js";
 (function () {
   const STORAGE_KEY = "cs-theme";
   const html = document.documentElement;
-  const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved === "dark") {
-    html.setAttribute("data-theme", "dark");
-  }
 
   document.addEventListener("DOMContentLoaded", () => {
     const btn = document.getElementById("btn-theme");
@@ -25,13 +21,14 @@ import { arrayAnimals, getAvailableAnimals } from "./data.js";
   });
 })();
 
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
   const animalSelect = document.getElementById("animal");
   if (animalSelect) {
-    const animals = await getAvailableAnimals();
+    const animals = getAvailableAnimals();
     animals.forEach((animal, index) => {
       const option = document.createElement("option");
-      const animalId = animal.id ?? animal.name.toLowerCase().replaceAll(" ", "-");
+      const animalId =
+        animal.id ?? animal.name.toLowerCase().replaceAll(" ", "-");
 
       option.value = animalId || `animal-${index}`;
       option.textContent = `${animal.name} · ${animal.type_animal}`;
@@ -70,7 +67,7 @@ function viewAnimals(list) {
     let imgUrl;
 
     card.className = "animal-card";
-    
+
     if (animal.type_animal === "tejon melero") {
       imgUrl = "./../assets/imgs/tejon-melero.jpg";
     } else if (animal.type_animal === "panda rojo") {
@@ -106,4 +103,4 @@ function viewAnimals(list) {
   });
 }
 
-viewAnimals(arrayAnimals)
+viewAnimals(arrayAnimals);
