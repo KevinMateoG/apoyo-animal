@@ -5,15 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="assets/styles/styles.css" />
     <link rel="stylesheet" href="assets/styles/index.css" />
+    <script>
+      if (localStorage.getItem("cs-theme") === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
     <title>Document</title>
   </head>
   <body>
     <header class="site-header">
       <nav class="site-nav">
-        <a href="./index.html"><img
-          src="./assets/imgs/colaboraciones-salvajes.png"
-          alt="logo de la pagina"
-          class="nav-logo-img"
+        <a href="./index.html"
+          ><img
+            src="./assets/imgs/colaboraciones-salvajes.png"
+            alt="logo de la pagina"
+            class="nav-logo-img"
         /></a>
         <a href="./index.html" class="active">Inicio</a>
         <a href="./templates/catalog.html">Ejemplares</a>
@@ -216,7 +222,6 @@
         </div>
       </div>
     </footer>
-
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>

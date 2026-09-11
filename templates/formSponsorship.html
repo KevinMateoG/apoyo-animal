@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./../assets/styles/styles.css" />
     <link rel="stylesheet" href="./../assets/styles/formSponsorship.css" />
+    <script>
+      if (localStorage.getItem("cs-theme") === "dark") {
+        document.documentElement.setAttribute("data-theme", "dark");
+      }
+    </script>
     <title>Apadrinar y donar | Colaboraciones Salvajes</title>
   </head>
   <body>
@@ -52,7 +57,11 @@
             </p>
           </div>
 
-          <form class="sponsorship-form" action="#" method="post">
+          <div class="form-error-banner" id="form-errors" hidden>
+            <ul id="form-error-list"></ul>
+          </div>
+
+          <form class="sponsorship-form" method="post" novalidate>
             <fieldset class="form-fieldset">
               <legend class="form-legend">Destino de tu donación</legend>
               <div class="form-choice-grid">
@@ -88,10 +97,29 @@
                   aria-expanded="false"
                   aria-controls="animal-picker-modal"
                 >
-                  <span class="animal-picker-trigger__preview" id="picker-preview">
-                    <span class="animal-picker-trigger__placeholder">Selecciona un ejemplar</span>
+                  <span
+                    class="animal-picker-trigger__preview"
+                    id="picker-preview"
+                  >
+                    <span class="animal-picker-trigger__placeholder"
+                      >Selecciona un ejemplar</span
+                    >
                   </span>
-                  <svg class="animal-picker-trigger__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+                  <svg
+                    class="animal-picker-trigger__icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
                 </button>
               </div>
               <div
@@ -102,12 +130,19 @@
                 aria-label="Selecciona un animal para apadrinar"
                 hidden
               >
-                <div class="animal-picker-modal__backdrop" id="picker-backdrop"></div>
+                <div
+                  class="animal-picker-modal__backdrop"
+                  id="picker-backdrop"
+                ></div>
                 <div class="animal-picker-modal__panel">
                   <div class="animal-picker-modal__header">
                     <div>
-                      <h3 class="animal-picker-modal__title">Elige tu animal</h3>
-                      <p class="animal-picker-modal__subtitle">Selecciona el ejemplar que quieres acompañar</p>
+                      <h3 class="animal-picker-modal__title">
+                        Elige tu animal
+                      </h3>
+                      <p class="animal-picker-modal__subtitle">
+                        Selecciona el ejemplar que quieres acompañar
+                      </p>
                     </div>
                     <button
                       type="button"
@@ -115,11 +150,27 @@
                       id="picker-close"
                       aria-label="Cerrar selector de animales"
                     >
-                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="18"
+                        height="18"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M18 6 6 18" />
+                        <path d="m6 6 12 12" />
+                      </svg>
                     </button>
                   </div>
-                  <div class="animal-picker-modal__grid" id="animal-picker-grid">
-                  </div>
+                  <div
+                    class="animal-picker-modal__grid"
+                    id="animal-picker-grid"
+                  ></div>
                 </div>
               </div>
             </fieldset>
@@ -213,6 +264,9 @@
               Continuar con mi donación
             </button>
           </form>
+          <div class="message-container">
+            <pre id="gratitude"></pre>
+          </div>
         </div>
       </section>
     </main>

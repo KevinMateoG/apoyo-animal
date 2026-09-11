@@ -14,6 +14,8 @@
 .sponsorship-layout {
   max-width: 52rem;
   margin-inline: auto;
+  gap: var(--space-xl);
+  align-items: start;
 }
 
 .sponsorship-header {
@@ -26,6 +28,7 @@
   flex-direction: column;
   gap: var(--space-xl);
   padding: var(--space-xl);
+
   border: 1px solid var(--clr-border);
   border-radius: var(--radius-2xl);
   background: color-mix(in srgb, var(--clr-bg) 60%, var(--clr-surface-card));
@@ -378,6 +381,7 @@
   text-align: left;
   font: inherit;
   padding: 0;
+  height: 200px;
   transition:
     border-color var(--transition),
     box-shadow var(--transition),
@@ -492,4 +496,80 @@
   .animal-picker-modal__grid {
     grid-template-columns: 1fr;
   }
+}
+
+.form-error-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-lg);
+  border: 1px solid color-mix(in srgb, #dc2626 40%, var(--clr-border));
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, #dc2626 8%, var(--clr-bg));
+  animation: banner-in 250ms ease;
+}
+
+.form-error-banner::before {
+  content: "⚠";
+  font-size: 1rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  color: #dc2626;
+}
+
+.form-error-banner ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.form-error-banner li {
+  font-size: 0.82rem;
+  color: color-mix(in srgb, #dc2626 80%, var(--clr-text));
+  line-height: 1.5;
+}
+
+.form-error-banner li::before {
+  content: "· ";
+  font-weight: 700;
+}
+
+@keyframes banner-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.message-container {
+  display: none;
+  opacity: 0;
+  transform: translateY(12px);
+  padding-top: 1%;
+  transition:
+    opacity 400ms ease,
+    transform 400ms ease;
+}
+
+.message-container.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.message-container pre {
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  color: var(--clr-text);
+  padding: var(--space-xl);
+  border: 1px solid color-mix(in srgb, var(--clr-primary) 30%, var(--clr-border));
+  border-radius: var(--radius-2xl);
+  background: color-mix(in srgb, var(--clr-primary) 6%, var(--clr-bg));
 }
