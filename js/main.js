@@ -9,6 +9,14 @@ import { arrayAnimals, getAvailableAnimals } from "./data.js";
     if (!btn) return;
 
     btn.addEventListener("click", () => {
+      if (!document.startViewTransition) {
+        toggleTheme();
+        return;
+      }
+      document.startViewTransition(() => toggleTheme());
+    });
+
+    function toggleTheme() {
       const isDark = html.getAttribute("data-theme") === "dark";
       if (isDark) {
         html.removeAttribute("data-theme");
@@ -17,7 +25,7 @@ import { arrayAnimals, getAvailableAnimals } from "./data.js";
         html.setAttribute("data-theme", "dark");
         localStorage.setItem(STORAGE_KEY, "dark");
       }
-    });
+    }
   });
 })();
 

@@ -65,8 +65,8 @@ function selectAnimal(animal, card) {
   closePicker();
 }
 
-async function buildGrid() {
-  const animals = await getAvailableAnimals();
+function buildGrid() {
+  const animals = getAvailableAnimals();
   grid.innerHTML = "";
   animals.forEach((animal) => {
     const card = document.createElement("button");
@@ -158,8 +158,8 @@ function clearErrors() {
   errorList.innerHTML = "";
 }
 
-async function getAnimalNameFromId(id) {
-  const animals = await getAvailableAnimals();
+function getAnimalNameFromId(id) {
+  const animals = getAvailableAnimals();
   const found = animals.find(
     (a) => a.name.toLowerCase().replaceAll(" ", "-") === id,
   );
@@ -200,8 +200,6 @@ form.addEventListener("submit", (e) => {
     'input[name="donation-type"]:checked',
   ).value;
   const animalName =
-    donationType === "animal"
-      ? getAnimalNameFromId(animalInput.value)
-      : null;
+    donationType === "animal" ? getAnimalNameFromId(animalInput.value) : null;
   showThankYou(userName, donationType, animalName);
 });
