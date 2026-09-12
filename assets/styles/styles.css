@@ -145,9 +145,37 @@ a {
   white-space: nowrap;
 }
 
+@media (max-width: 768px) {
+  .site-nav {
+    gap: var(--space-md);
+  }
+}
+
 @media (max-width: 640px) {
-  .site-nav > a {
-    display: none;
+  .site-nav {
+    flex-wrap: wrap;
+    height: auto;
+    padding-block: var(--space-sm);
+    gap: var(--space-sm);
+    justify-content: center;
+  }
+  .site-nav::before {
+    content: "";
+    flex-basis: 100%;
+    order: 2;
+  }
+  .site-nav > a:first-child {
+    order: 1;
+    margin-right: auto;
+  }
+  .nav-actions {
+    order: 1;
+    margin-left: 0;
+  }
+  .site-nav > a:not(:first-child) {
+    order: 3;
+    font-size: 0.85rem;
+    padding-inline: var(--space-xs);
   }
 }
 
