@@ -29,10 +29,10 @@ import { arrayAnimals, getAvailableAnimals } from "./data.js";
   });
 })();
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const animalSelect = document.getElementById("animal");
   if (animalSelect) {
-    const animals = getAvailableAnimals();
+    const animals = await getAvailableAnimals();
     animals.forEach((animal, index) => {
       const option = document.createElement("option");
       const animalId =
