@@ -7,7 +7,7 @@ Colaboraciones salvajes es una pagina donde cualquier persona puede donar o apad
 
 ## Sitio de publicacion:
 
-- **Link de vercel:** https://apoyo-animal.vercel.app/
+- **Link de vercel:** https://colabsalvajes.vercel.app/
 - **Repositorio:** https://github.com/KevinMateoG/apoyo-animal
 
 ## Capturas:
