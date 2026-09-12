@@ -48,31 +48,35 @@ Todas las variables de los colores quedaron concentrados en `styles.css` que es 
 ## JavaScript: intecciones
 
 ### Grupo A - DOM:
+
 - **Catalogo generado dinamicamente:** en `main.js` se realiza un reccorrido del array de `arrayAnimals` que esta dentro de `data.js` y se crea una tarjeta por cada animal con `<artivle class="animal-card"`, usamos `document.createElement` para crear el elemento, `document.querySelector` para obtener el elemento padre, y `document.innerHTML` para insertar el elemento en el documento, usamos todo esto para hacer la pagina reactiva y no tener que quemar codigo en html y css, ademas de que se sienta mas natural, cuando el usuario hace clic en una tarjeta, se abre un modal con la informacion del animal, esto se logra con el evento `click` que se le asigna a cada tarjeta, y se utiliza `document.querySelector` para obtener el elemento padre, y `document.innerHTML` para insertar el elemento en el documento.
 
-- **Filtro del catalogo:** los botones que se encuentran en `catalogo-filtros` se encargan de filtrar los animales por especie, esto se logra con el evento `click` que se le asigna a cada boton, y se utiliza `document.querySelector` para obtener el elemento padre, y `document.innerHTML` para insertar el elemento en el documento, y esto se logra usando .filter para filtrar el array de animales y .map para obtener los elementos que se van a mostrar, esto cambia el atributo `hidden` de los animales que no se encuentran en la especie filtrada segun `data-category`
+- **Filtro del catálogo:** los botones dentro de `catalogo-filtros` recorren con `forEach` todas las tarjetas (`.animal-card`) ya renderizadas en el DOM y comparan su atributo `data-category` con el filtro seleccionado (`data-filter` del botón). Si coinciden (o si el filtro es "Todos"), la tarjeta se muestra; si no, se oculta cambiando su propiedad `hidden`. También se actualiza la clase `filter-btn--active` para marcar visualmente el botón activo.
 
-- **Selector de animal:** en `formSponsorship.html` se encuentra un select con los animales disponibles para apadrinar, aqui hacemos una ventana flotante con los datos del animal seleccionado, la persona puede seleccionar el animal a apadrinar o hacer una donacion general, si selecciona un animal, se muestra un mensaje de confirmacion con los datos del animal y la opcion de continuar con el apadrinamiento.
+- **Selector de animal:** en `formSponsorship.html` hay un botón (`#animal-picker-trigger`) que abre un modal (`#animal-picker-modal`) con una tarjeta por cada animal disponible, generadas dinámicamente a partir del arreglo de `data.js`. Al hacer clic en una tarjeta se guarda el animal seleccionado en un input oculto (`#animal`) y se actualiza la vista previa del botón con su nombre, especie y género. El modal se puede cerrar con el botón de cierre, haciendo clic fuera (backdrop) o presionando `Escape`.
 
 ### Grupo B - Formularios y validación:
+
 - **Campos requeridos:** En `sponsorship.js` se encuentran las validaciones de los campos del formulario (nombre, correo, direccion, aporte, animal a apadrinar), usamos `event.preventDefault()` para evitar que el formulario se envie, y usamos una funcion para validar cada campo, si algun campo no es valido, se muestra un mensaje de error y no se envia el formulario.
 
 - **Formato de correo:** Para hacer la validacion del correo se usa expresiones regulares (regex).
 
-- **Manejo de errores:** Los errores se listan en un contenedor, los errores se muestran en el div contenedor con `id="form-errors"` y si todo esta bien se muestra un modal de confirmacion. 
+- **Manejo de errores:** Los errores se listan en un contenedor, los errores se muestran en el div contenedor con `id="form-errors"` y si todo esta bien se muestra un modal de confirmacion.
 
 ### Grupo C - Eventos:
+
 - `click` en el botón de tema oscuro/claro.
 - `click` en los botones de filtro del catálogo.
 - `click` para abrir/cerrar el selector modal de animal, y `keydown`
   (`Escape`) para cerrarlo.
 - `submit` en el formulario de apadrinamiento.
 
-
 ### Modo oscuro:
+
 EL boton `#btn-theme` hace alterna el atributo `data-theme` del elemento `html`, esto hace que cambie el tema de la pagina de oscuro a claro y viceversa, adicional guardamos el tema en `localStorage` para que persista entre sesiones.
 
 ### Uso de inteligencia artificial:
+
 - **¿para que se uso?:** Use principalmente la IA para ayudarme primero a generar un estilo visual base del proyecto en <a href="https://stitch.withgoogle.com/">Stich</a> aqui se genero unos estilos y estructura html base, aunque stich usa tailwind solo fue hacer una adaptacion de los estilos a css puro,yo hacia una esturctura base del CSS y depues le pasaba el archivo de estilos que generaba stich para que me hiciera cambios o me diera ideas de como podria quedar, aunque no use la estuctura html que da Stich ya que no me parecia la mas legible entonces todo lo que tiene que ver con estructuracion de la pagina me encague yo.
 
 - **¿Que parte me ayudo a resolver?:** Me ayudo a resolver muchos problemas que tengo a la hora de usar CSS como daptacion a diferentes tamaños de pantalla, el tema del modo oscuro, aplicar la animacion del modo oscuro, ya que son cosas que comun mento no hago,ademas de que me ayudo a resolver problemas con la adaptaicon de los estilos a la pantalla, tambien a crear diferentes animales, mucho del codigo que hice lo realizaba en un solo archivo dificultando la legibilidad asi que con el codigo ya hecho le pedi a la IA que separa todo en archivos legibles los cuales tuvieran el mismo nombre a la pagina que hacian refrerencia, esto me ahorro mucho tiempo de estar revisando codigo y cortando y pegando.
@@ -82,8 +86,9 @@ EL boton `#btn-theme` hace alterna el atributo `data-theme` del elemento `html`,
 - **¿Que aprendi del proceso:** Reforce bastante conocimiento sobre lo mas basico del desarrollo web, ya que usualmente usaba frameworks no tenia que usar tanto el CSS puro ni DOM, asi que fue un gran impulso para recordar bastantes cosas que habian quedado al fondo de mi memoria, ya que los frameworks recortan mucho trabajo que antes hacia manualmente, ademas muchas veces usamos frameworks de CSS como boopstrap, tailwind, bulma, etc, que nos facilitan el trabajo, pero no nos permiten entender realmente como funciona el CSS, mi mayor fuerte es back-end, pero fue bueno usar un poco de front-end, ademas de que la IA puede ser muy util para tener ideas y hacer separaciones de manera rapida.
 
 ### Lo mas dificil:
+
 - **¿que fue lo mas complicado?:** Lo mas complicado para mi siempre sera el CSS ya que no soy bueno con el front-end y especialmente en esa parte, puedo aplicar ciertos estilos, realizar modificaciones, etc.
-pero cuando se trata de reactividad o de adaptaciones, siempre se me dificulta.
+  pero cuando se trata de reactividad o de adaptaciones, siempre se me dificulta.
 
 - **¿Por que fue dificil?:** Principalmente por que no suelo trabajar con CSS puro y ademas no suelo trabajar con animaciones y efectos, me gusta mas trabajar con back-end, que es mas logico y estructurado, el front-end me parece muy abstracto y desordenado, ademas de que se tiene que pensar mucho en colores llamativos, en las diferentes Utility-First CSS (CSS utilitario) como el minimalisto, o los principios YAGNI, todo lo que tenga que ver con estetica es lo que mas se me dificulta ademas de que se debe tener muchas cosas encuenta para poder hacer separaciones, centrado de elementos, animaciones y efectos.
 
@@ -96,8 +101,9 @@ pero cuando se trata de reactividad o de adaptaciones, siempre se me dificulta.
 
 **¿Como ejecutar en local?:**
 Se puede usar la extencion de `live server` de vscode o tambien con el comando npx:
+
 ```
 npx serve .
 ```
-con este se abre un servidor local en el puerto `3000`
 
+con este se abre un servidor local en el puerto `3000`
