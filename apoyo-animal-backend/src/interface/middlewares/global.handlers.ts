@@ -1,6 +1,8 @@
 import { Prisma } from "@prisma/client";
 import type { NextFunction, Request, Response } from "express";
 import { AppError } from "../../application/errors/app.error.ts";
+import { getRouteLabel } from "../../infrastructure/observability/route-label.ts";
+import { logger } from "../../infrastructure/observability/logger.ts";
 
 export function notFoundHandler(req: Request, res: Response): void {
   res.status(404).json({
@@ -13,10 +15,18 @@ export function notFoundHandler(req: Request, res: Response): void {
 
 export function errorMiddleware(
   err: unknown,
-  _req: Request,
+  req: Request,
   res: Response,
   _next: NextFunction,
 ): void {
+  const isKnownError = err instanceof AppError;
+  logger.error("Request failed", {
+    method: req.method,
+    route: getRouteLabel(req),
+    error_type: err instanceof Error ? err.name : "UnknownError",
+    ...(isKnownError ? { error_code: err.code, status_code: err.statusCode } : {}),
+  });
+
   if (err instanceof AppError) {
     res.status(err.statusCode).json({
       error: {
