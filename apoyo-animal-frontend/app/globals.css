@@ -1,0 +1,145 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --clr-bg: #faf8f5;
+  --clr-bg-elevated: #f4efe9;
+  --clr-surface-white: #ffffff;
+  --clr-surface-card: #f4efe9;
+  --clr-text: #1e252b;
+  --clr-text-secondary: #4b5563;
+  --clr-text-muted: #6b7280;
+  --clr-primary: #a6522c;
+  --clr-primary-hover: #8d4322;
+  --clr-primary-text: #faf8f5;
+  --clr-border: #e8e2dc;
+  --clr-border-subtle: #f0ece7;
+
+  --clr-status-stable-bg: #ecfdf5;
+  --clr-status-stable-text: #065f46;
+  --clr-status-danger-bg: #fff7ed;
+  --clr-status-danger-text: #a6522c;
+  --clr-status-vuln-bg: #f1f5f9;
+  --clr-status-vuln-text: #475569;
+
+  --font-serif: var(--font-libre-caslon), Georgia, serif;
+  --font-sans: var(--font-hanken), system-ui, sans-serif;
+
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+
+  --radius: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+  --radius-full: 9999px;
+
+  --transition: 200ms ease;
+  --max-w: 1280px;
+}
+
+html[data-theme="dark"] {
+  --clr-bg: #0f1317;
+  --clr-bg-elevated: #1a2028;
+  --clr-surface-white: #1e262e;
+  --clr-surface-card: #1e262e;
+  --clr-text: #eef2f7;
+  --clr-text-secondary: #a0aec0;
+  --clr-text-muted: #718096;
+  --clr-primary: #ffb597;
+  --clr-primary-hover: #ffa07a;
+  --clr-primary-text: #1e252b;
+  --clr-border: #2d3748;
+  --clr-border-subtle: #232b35;
+
+  --clr-status-stable-bg: #064e3b;
+  --clr-status-stable-text: #6ee7b7;
+  --clr-status-danger-bg: #431407;
+  --clr-status-danger-text: #ffb597;
+  --clr-status-vuln-bg: #1e293b;
+  --clr-status-vuln-text: #94a3b8;
+}
+
+@theme {
+  --shadow-picker:
+    0 20px 60px color-mix(in srgb, var(--clr-text) 18%, transparent),
+    0 4px 16px color-mix(in srgb, var(--clr-text) 10%, transparent);
+  --shadow-picker-card-hover: 0 4px 16px
+    color-mix(in srgb, var(--clr-text) 8%, transparent);
+  --shadow-picker-card-selected:
+    inset 0 0 0 1px var(--clr-primary),
+    0 4px 16px color-mix(in srgb, var(--clr-primary) 20%, transparent);
+
+  --animate-banner-in: banner-in 250ms ease;
+  --animate-fade-up: fade-up 400ms ease;
+
+  @keyframes banner-in {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+}
+
+body {
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+::view-transition-new(root) {
+  mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><circle cx="20" cy="20" r="20" fill="white"/></svg>')
+    center / 0 no-repeat;
+  animation: scale 1s;
+  animation-fill-mode: both;
+}
+
+::view-transition-old(root),
+html[data-theme="dark"]::view-transition-old(root) {
+  animation: none;
+  animation-fill-mode: both;
+  z-index: -1;
+}
+
+html[data-theme="dark"]::view-transition-new(root) {
+  animation: scale 1s;
+  animation-fill-mode: both;
+}
+
+@keyframes scale {
+  to {
+    mask-size: 200vmax;
+  }
+}
